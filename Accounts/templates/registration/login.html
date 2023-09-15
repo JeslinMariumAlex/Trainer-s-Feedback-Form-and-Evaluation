@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% load crispy_forms_filters %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div
+    class="w-25 p-3 border border-dark m-auto bg-light container vh-50 d-flex justify-content-center align-items-center">
+    <form method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<div class="text-center py-3">
+    <form action="{% url 'register' %}">
+        {% csrf_token %}
+        Not Registered yet? <input type="submit" value="Register">
+    </form>
+</div>
+{% endblock %}
